@@ -1,10 +1,10 @@
 ﻿using OrchardCore.Modules;
 using System;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Routing;
 
-namespace ModuleA
+namespace ModuleB
 {
     public class Startup : StartupBase
     {
@@ -15,13 +15,7 @@ namespace ModuleA
 
         public override void Configure(IApplicationBuilder app, IRouteBuilder routes, IServiceProvider serviceProvider)
         {
-            routes.MapAreaRoute
-            (
-                name: "Home",
-                areaName: "ModuleA",
-                template: "",
-                defaults: new { controller = "Home", action = "Index" }
-            );
+            base.Configure(app, routes, serviceProvider);
         }
     }
 }
